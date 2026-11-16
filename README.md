@@ -82,6 +82,32 @@ The dashboard flags a customer as high risk at a probability threshold of 0.4, s
 
 !\[Customer segments](reports/figures/07\_segments.png)
 
+\## Model comparison
+
+
+
+Three models were compared using 5-fold stratified cross-validation on the training set, and then evaluated once on the held-out test set (same 80/20 split for all).
+
+
+
+| Model | CV AUC (mean) | CV AUC (std) | Test AUC | Test accuracy (0.5) | Recall (0.4) | Precision (0.4) |
+
+|---|---|---|---|---|---|---|
+
+| Logistic Regression | 0.750 | 0.010 | 0.726 | 0.677 | 0.752 | 0.572 |
+
+| Random Forest | 0.747 | 0.011 | 0.720 | 0.662 | 0.810 | 0.556 |
+
+| Gradient Boosting | 0.743 | 0.011 | 0.711 | 0.638 | 0.776 | 0.560 |
+
+
+
+The three models perform almost the same (the AUC differences are smaller than the cross-validation standard deviation). Logistic Regression was kept as the final model because it is simple, fast and easy to explain, and it does not lose to the more complex models.
+
+
+
+The comparison script is `src/compare\_models.py`. Results are saved in `reports/model\_comparison.csv`.
+
 
 
 \## Segments found
@@ -158,6 +184,12 @@ customer-churn-project/
 
 3\. Run the dashboard.
 
+evaluate\_model.py compare\_models.py ... train\_final.py, evaluate\_model.py, compare\_models.py.
+
+
+
+
+
 
 
 Run all scripts from the project root folder, because file paths are relative.
@@ -168,9 +200,7 @@ Run all scripts from the project root folder, because file paths are relative.
 
 
 
-\- ROC-AUC of 0.726 is a baseline. Better features or models (Random Forest, XGBoost) may improve it.
-
-\- Churn is defined by a fixed 90-day window, which is a business assumption.
+\- ROC-AUC of 0.726 is a baseline. Random Forest and Gradient Boosting did not beat it, so better gains are more likely to come from new features (for example product categories or return rate) than from a more complex model.- Churn is defined by a fixed 90-day window, which is a business assumption.
 
 \- The predictions CSV includes customers the model was trained on, so the "flagged" count is not a fair test score. Use the test metrics above for performance.
 

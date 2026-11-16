@@ -1,0 +1,4 @@
+Model,CV_AUC_mean,CV_AUC_std,Test_AUC,Test_Accuracy(0.5),Test_Recall(0.4),Test_Precision(0.4)
+Logistic Regression,0.75,0.01,0.726,0.677,0.752,0.572
+Random Forest,0.747,0.011,0.72,0.662,0.81,0.556
+Gradient Boosting,0.743,0.011,0.711,0.638,0.776,0.56
