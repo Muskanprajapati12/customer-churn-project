@@ -1,5 +1,5 @@
 \# Customer Segmentation and Churn Prediction
-**Live demo:** [Open the dashboard](https://share.streamlit.io/)
+**Live demo:** [Open the dashboard](https://muskan-churn-dashboard.streamlit.app/)
 
 
 
