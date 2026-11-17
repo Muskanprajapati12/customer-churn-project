@@ -1,4 +1,5 @@
 \# Customer Segmentation and Churn Prediction
+**Live demo:** [Open the dashboard](https://....streamlit.app)
 
 
 
